@@ -52,10 +52,10 @@
         <div class="row d-flex w-100">
             <ul class="navbar-nav w-100">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Home</a>
+                    <a class="nav-link text-white" href="{{ route("admin.dashboard") }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Product</a>
+                    <a class="nav-link text-white" href="{{ route("admin.manageProduct") }}">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="">Category</a>

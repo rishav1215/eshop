@@ -1,4 +1,4 @@
-@extends('admin.adminpannel')
+@extends('admin.adminparent')
 
 @section('title', 'Manage Category')
 

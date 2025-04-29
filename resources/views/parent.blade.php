@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid bg-info text-white py-3">
+  <div class="container-fluid bg-success text-white py-3">
     <div class="row align-items-center justify-content-between px-3">
       <!-- Logo / App Name -->
       <div class="col-12 col-md-auto mb-3 mb-md-0">

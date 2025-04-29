@@ -1,41 +1,59 @@
 @extends("parent")
 
-@section("title", "homepage")
+@section("title", "Homepage")
 
 @section('content')
-
-<!-- Banner Image -->
-<div class="mb-4">
-    <img src="https://picsum.photos/1000/200" alt="" class="img-fluid w-100">
+<!-- Banner Section -->
+<div class="container-fluid p-0">
+    <img src="{{ asset('images/banner.png') }}" class="img-fluid w-100" style="max-height: 500px; object-fit: cover;" alt="Banner">
 </div>
 
-<!-- Product Grid -->
-<div class="container py-4">
-    <div class="row g-4">
-        @foreach ($products as $item)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card h-100 shadow-sm border-0">
-                <img src="{{ $item->image }}" class="card-img-top" alt="Product Image" style="height: 180px; object-fit: cover;">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-dark">{{ $item->title }}</h5>
-                    <p class="card-subtitle text-muted mb-2">Category Name</p>
-                    <div class="mt-auto">
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="fw-bold text-success me-2">{{ $item->price }}</span>
-                            <span class="text-muted text-decoration-line-through small">{{ $item->discount_price }}</span>
-                        </div>
-                        <button class="btn btn-primary w-100">Add to Cart</button>
-                    </div>
-                </div>
+<!-- Main Content -->
+<div class="container mt-5">
+    <div class="row">
+
+        <!-- Category Sidebar -->
+        <div class="col-md-3 mb-4">
+            <div class="list-group shadow-sm">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    Categories
+                </a>
+                @foreach ($categories as $category)
+                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ $category->cat_title }}
+                    @php $count = $category->products->count(); @endphp
+                    @if($count > 0)
+                        <span class="badge bg-primary rounded-pill">{{ $count > 99 ? '99+' : $count }}</span>
+                    @endif
+                </a>
+                @endforeach
             </div>
         </div>
-        @endforeach
-    </div>
 
-    <!-- Pagination -->
-    <div class="mt-4">
-        {{ $products->links() }}
+        <!-- Products-->
+        <div class="col-md-9">
+            <div class="row">
+                @foreach ($products as $item)
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 shadow-sm border-2">
+                        <img src="{{ $item->image }}" alt="{{ $item->title }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1">{{ $item->title }}</h5>
+                            <p class="mb-0">
+                                <span class="text-danger fw-bold">{{ $item->discount_price }}</span>
+                                <small class="text-muted text-decoration-line-through">{{ $item->price }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center">
+                {{ $products->links() }}
+            </div>
+        </div>
     </div>
 </div>
-
 @endsection

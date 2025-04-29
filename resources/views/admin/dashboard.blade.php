@@ -1,4 +1,4 @@
-@extends('admin.adminpannel')
+@extends('admin.adminparent')
 
 @section('title', 'Dashboard')
 
@@ -10,11 +10,12 @@
         <div class="col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body text-center">
+                <h1>{{ App\Models\Product::count() }}</h1>  
                     <i class="bi bi-box-seam fs-1 text-primary mb-3"></i>
                     <h5 class="card-title fw-semibold">Manage Products</h5>
                     <div class="d-grid gap-2 mt-3">
-                        <a href="#" class="btn btn-outline-primary">Insert</a>
-                        <a href="#" class="btn btn-primary">Manage</a>
+                        <a href="{{ route("admin.insertProduct") }}" class="btn btn-outline-primary">Insert</a>
+                        <a href="{{ route("admin.manageProduct") }}" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
             </div>
@@ -24,6 +25,7 @@
         <div class="col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body text-center">
+                <h1>{{ App\Models\user::count() }}</h1>
                     <i class="bi bi-people-fill fs-1 text-success mb-3"></i>
                     <h5 class="card-title fw-semibold">Manage Users</h5>
                     <div class="d-grid gap-2 mt-3">
@@ -38,6 +40,7 @@
         <div class="col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body text-center">
+                <h1>{{ App\Models\Category::count() }}</h1>
                     <i class="bi bi-tags-fill fs-1 text-warning mb-3"></i>
                     <h5 class="card-title fw-semibold">Manage Category</h5>
                     <div class="d-grid gap-2 mt-3">
@@ -52,6 +55,7 @@
         <div class="col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body text-center">
+                    
                     <i class="bi bi-cart-check-fill fs-1 text-danger mb-3"></i>
                     <h5 class="card-title fw-semibold">Manage Orders</h5>
                     <div class="d-grid gap-2 mt-3">
