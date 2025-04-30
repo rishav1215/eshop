@@ -52,7 +52,7 @@
                                     <a href="#" class="btn btn-outline-primary btn-sm">
                                         <i class="bi bi-eye"></i> View
                                     </a>
-                                    <a href="#" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">
+                                    <a href="{{ route("admin.deleteProduct", $item->id) }}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">
                                         <i class="bi bi-x-circle"></i> Delete
                                     </a>
                                 </div>
@@ -65,6 +65,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{ $products->Links() }}
             </div>
         </div>
     </div>

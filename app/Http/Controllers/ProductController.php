@@ -49,5 +49,9 @@ class ProductController extends Controller
         return redirect()->route('admin.manageProduct');
     }
 
-    
+    public function deleteProduct(request $request, $id){
+        $data = Product::find($id);
+        $data->delete();
+        return redirect()->back()->with("msg", "product deleted");
+    }
 }

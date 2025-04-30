@@ -38,9 +38,10 @@
 
 <!-- Navbar Section -->
 <div class="navbar navbar-expand-lgg navbar-custom">
-    <div class="container">
+    <div class="container mb-5">
         <!-- Logo / App Name -->
         <a class="navbar-brand" href="/">{{ env("APP_NAME") }}</a>
+        <a href="" class="btn btn-success">Logout</a>
 
         
     </div>
@@ -58,7 +59,7 @@
                     <a class="nav-link text-white" href="{{ route("admin.manageProduct") }}">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="">Category</a>
+                    <a class="nav-link text-white" href="{{ route("admin.manageCategory") }}">Category</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="">Users</a>
